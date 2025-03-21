@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Assignments</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #ff79c6;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1300px;
+      width: 100%;
+      padding: 20px;
+    }
+    .card {
+      background: linear-gradient(135deg, #2a2a72, #009ffd);
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      transition: 0.3s;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.7);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .card a {
+      display: inline-block;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .card a:hover {
+      background: linear-gradient(135deg, #ff4b2b, #ff416c);
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Assignments</h1>
+  <div class="container" id="assignmentContainer"></div>
+  <script>
+    const assignments = [
+      { title: "Assignment 1: Alert", url: "https://wondrous-treacle-196f8e.netlify.app/", image: "images/alert.jpg" },
+      { title: "Assignment 2: Variable For String", url: "https://quiet-figolla-6d8ae3.netlify.app/", image: "images/variable.jpg" },
+      { title: "Assignment 3: Variable For Numbers", url: "https://roaring-hummingbird-35cf87.netlify.app/", image: "images/numbers.jpg" },
+      { title: "Assignment 4: Variable Names", url: "https://famous-vacherin-a1ec68.netlify.app/", image: "images/names.jpg" },
+      { title: "Assignment 5: EasyPaisa App", url: "https://illustrious-bonbon-769de8.netlify.app/", image: "images/easypaisa.jpg" },
+      { title: "Assignment 6: Math Expressions", url: "https://phenomenal-chebakia-ad6949.netlify.app/", image: "images/math.jpg" },
+      { title: "Assignment 7: User Input & Conditional Statement", url: "https://aesthetic-mooncake-26a362.netlify.app/", image: "images/conditions.jpg" },
+      { title: "Assignment 8: Testing Set Of Conditions", url: "https://neon-trifle-e57946.netlify.app/", image: "images/testing.jpg" },
+      { title: "Assignment 9: Arrays", url: "https://marvelous-rolypoly-dd3f32.netlify.app/", image: "images/arrays.jpg" },
+      { title: "Assignment 10: Array And Loop", url: "https://venerable-crumble-d9fb53.netlify.app/", image: "images/loop.jpg" },
+      { title: "Assignment 11: Case Changer", url: "https://capable-daffodil-ddba93.netlify.app/", image: "images/case.jpg" },
+      { title: "Assignment 12: Password Generator", url: "https://capable-brioche-9f7e79.netlify.app/", image: "images/password.jpg" },
+      { title: "Assignment 13: String Methods", url: "https://capable-melba-02b60a.netlify.app/", image: "images/string.jpg" },
+      { title: "Assignment 14: Age Calculator", url: "https://celadon-cupcake-60bc56.netlify.app/", image: "images/age.jpg" },
+      { title: "Assignment 15: Leap Year Finder", url: "https://precious-taiyaki-9c8a4f.netlify.app/", image: "images/leap.jpg" },
+      { title: "Assignment 16: Day Finder", url: "https://resplendent-bonbon-78294c.netlify.app/", image: "images/day.jpg" },
+      { title: "Assignment 17: Name Place  ", url: "https://extraordinary-kitsune-40923e.netlify.app/", image: "images/" },
+      { title: "Assignment 18: Roll the Dice", url: "https://dulcet-unicorn-8b51dd.netlify.app/", image: "images/" },
+      { title: "Assignment 19: Calculator", url: "https://timely-gnome-d06390.netlify.app/", image: "images/" },
+      { title: "Assignment 20: Text styler", url: "https://cosmic-fenglisu-daab2f.netlify.app/", image: "images/" },
+      { title: "Assignment 21: PostBoard", url: "", image: "https://creative-pony-9af91d.netlify.app/ges/" },
+      { title: "Assignment 22:TODO App ", url: "https://papaya-beignet-527ff3.netlify.app/", image: "images/" },
+      { title: "Assignment 23: Color guess game", url: "https://effulgent-hamster-a600a0.netlify.app/", image: "images/" },
+      { title: "Assignment 24: Recipe Master Website", url: "https://strong-croissant-6d370c.netlify.app/", image: "images/" },
+      { title: "Assignment 25:Todo with local ", url: "https://jocular-beijinho-ff1432.netlify.app/", image: "images/" },
+      { title: "Assignment 26: StopWatch", url: "https://curious-crepe-cf8a7f.netlify.app/", image: "images/" },
+      { title: "Assignment 27:Register&Signin ", url: "https://splendid-cannoli-a8eb9a.netlify.app/", image: "images/" },
+       { title: "Assignment 28: AutoScroll", url: "https://dapper-stardust-a2d379.netlify.app/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+      // { title: "Assignment : ", url: "Assignment_16/", image: "images/" },
+    ];
+
+    const container = document.getElementById("assignmentContainer");
+
+    assignments.forEach(assignment => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = `
+        <img src="${assignment.image}" alt="${assignment.title}">
+        <a href="https://geek-hadeed.github.io/SMIT_MODULE_2_Assignments/${assignment.url}" target="_blank">${assignment.title}</a>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #display {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="display">00:00:00</div>
+    <button onclick="startStop()">Start/Stop</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>
+        let timer;
+        let running = false;
+        let startTime;
+        let elapsedTime = 0;
+
+        function updateDisplay() {
+            let time = elapsedTime + (running ? Date.now() - startTime : 0);
+            let seconds = Math.floor(time / 1000) % 60;
+            let minutes = Math.floor(time / (1000 * 60)) % 60;
+            let hours = Math.floor(time / (1000 * 60 * 60));
+            document.getElementById("display").innerText = 
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function startStop() {
+            if (!running) {
+                startTime = Date.now() - elapsedTime;
+                timer = setInterval(updateDisplay, 100);
+            } else {
+                clearInterval(timer);
+                elapsedTime += Date.now() - startTime;
+            }
+            running = !running;
+        }
+
+        function reset() {
+            clearInterval(timer);
+            running = false;
+            elapsedTime = 0;
+            document.getElementById("display").innerText = "00:00:00";
+        }
+    </script>
+</body>
+</html>

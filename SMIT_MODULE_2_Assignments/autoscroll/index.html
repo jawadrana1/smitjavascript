@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #slider {
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+      }
+      #image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AUTO IMAGE SLIDER</h1>
+    <div id="slider">
+      <div id="image">
+        <img src="" alt="" id="img1" />
+      </div>
+    </div>
+    <script>
+      let images = [
+        "https://images.unsplash.com/photo-1575936123452-b67c3203c357?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D",
+        "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg",
+        "https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=600",
+      ];
+      const slider = document.getElementById("slider");
+
+      let img1 = document.getElementById("img1");
+      function timer1() {
+        let countdown = 0;
+        setInterval(function () {
+          img1.src = images[countdown];
+          countdown++;
+          if (countdown == images.length) {
+            countdown = 0;
+          }
+        }, 1500);
+      }
+      timer1();
+      // Add your code for the other slider images and transitions here...
+    
+    </script>
+  </body>
+</html>

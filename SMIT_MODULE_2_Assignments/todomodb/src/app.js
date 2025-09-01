@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json()); // parse JSON bodies
 
 const uri =
-  "mongodb+srv://geek-hadeed_user:Hadeed%40H123@practice.plhsltu.mongodb.net/";
+  "mongodb+srv://jawadrana1_user:Jawad%40H123@practice.plhsltu.mongodb.net/";
 
 const client = new MongoClient(uri);
 
@@ -82,4 +82,5 @@ app.use("/updateTodo", async (req, res) => {
 // ------------------- START SERVER -------------------
 app.listen(3000, () => {
   console.log(" Server running on port 3000");
+
 });
